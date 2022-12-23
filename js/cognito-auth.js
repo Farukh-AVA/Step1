@@ -121,7 +121,7 @@ var WildRydes = window.WildRydes || {};
         signin(email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
-                if(email == "farukh022198-at-gmail.com" && password == "Step_111"){
+                if(email == 'farukh022198@gmail.com' && password == 'Step_111'){
                     window.location.href = 'index.html';
                 }else{
                 window.location.href = 'step1.html';
