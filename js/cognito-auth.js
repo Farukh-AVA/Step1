@@ -2,6 +2,7 @@
 
 var WildRydes = window.WildRydes || {};
 
+
 (function scopeWrapper($) {
     var signinUrl = '/signin.html';
 
@@ -122,7 +123,7 @@ var WildRydes = window.WildRydes || {};
             function signinSuccess() {
                 console.log('Successfully Logged In');
                 if(email == 'farukh022198@gmail.com' && password == 'Step_111'){
-                    window.location.href = 'index.html';
+                    window.location.href = 'signup.html';
                 }else{
                 window.location.href = 'step1.html';
                 }
