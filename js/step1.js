@@ -73,6 +73,11 @@ WildRydes.map = WildRydes.map || {};
         }
     });
 
+    function showCredentials(){
+        var email = $('#emailInputRegister').val();
+        document.getElementById("showEmail").innerHTML = email;
+    }
+
     function handlePickupChanged() {
         var requestButton = $('#request');
         requestButton.text('Request Unicorn');
