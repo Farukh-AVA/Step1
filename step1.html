@@ -40,10 +40,22 @@
     </div>
 -->
     <div id = "showCredantials">
-        <h3 id = "showEmail"> Show email</h3>
-        
+        <h3>Hello <span id="showEmail"></span></h3>
+        <script>
+          var email = document.getElementById("emailInputRegister");  
+          console.log(email); 
+          var email1 = "farukh022198@gmail.com";
+          document.getElementById("showEmail").innerHTML = email;
+        </script>
+<!--
+        <h1>Hello<span id="showEmail"></span></h1>
+        <script>
+          var email = $('#emailInputRegister').val();
+          var email1 = "F@gmail.com"; 
+          document.getElementById("showEmail").innerHTML = email1;
+        </script>        
     </div>
-
+-->
     <div id="noApiMessage" class="configMessage" style="display: none;">
         <div class="backdrop"></div>
         <div class="panel panel-default">
@@ -96,7 +108,7 @@
     <script src="js/config.js"></script>
     <script src="js/cognito-auth.js"></script>
     <script src="js/esri-map.js"></script>
-    <script src="js/step1.js"></script> 
+    <!--<script src="js/step1.js"></script>--> 
 </body>
 
 </html>
