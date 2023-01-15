@@ -74,7 +74,7 @@ WildRydes.map = WildRydes.map || {};
     });
 
     function showCredentials(){
-        var email = $('#emailInputRegister').val();
+        var email = document.getElementById("emailInputSignin").value;
         document.getElementById("showEmail").innerHTML = email;
     }
 

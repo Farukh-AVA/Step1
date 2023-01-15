@@ -115,6 +115,21 @@ var WildRydes = window.WildRydes || {};
         $('#verifyForm').submit(handleVerify);
     });
 
+    function showLocalStorage(){
+          
+        //const myObject = { hello: 'world' };
+        //const myObjectString = JSON.stringify(myObject);
+        //localStorage.setItem('objectGreeting', myObjectString);
+
+        //var email = document.getElementById("emailInputSignin").value;
+        //const myObject = { email3: 'farukh'};
+        //console.log(email); 
+        //const myObjectString = JSON.stringify(myObject);
+        //var companiName  = "AWS";
+        //localStorage.setItem('objectGreeting', myObjectString);
+    
+    }
+
     function handleSignin(event) {
         var email = $('#emailInputSignin').val();
         var password = $('#passwordInputSignin').val();
@@ -125,6 +140,15 @@ var WildRydes = window.WildRydes || {};
                 if(email == 'farukh022198@gmail.com' && password == 'Step_111'){
                     window.location.href = 'signup.html';
                 }else{
+                //var email = document.getElementById("emailInputSignin").value;
+                var company = document.getElementById("companyNameinputString").value;
+                console.log(email);
+                const myObject = { 
+                    email: email,
+                    company: company
+                 };
+                const myObjectString = JSON.stringify(myObject);
+                localStorage.setItem('objectGreeting', myObjectString);
                 window.location.href = 'step1.html';
                 }
             },

@@ -105,7 +105,9 @@ body{
   width: 100vw;
   height: 100vh;
 
-  background-image: url(../images/background.png);
+  /*background-image: url(../images/background.png);*/ 
+  background-color:#999;  
+  background: #f8f8f8;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -188,13 +190,13 @@ header img{
 }
 
 
-input[type=text], input[type=password], input[type=email] {
+#showEmail, #showCompany,input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 0;
     margin: 10px 0 30px;
     display: inline-block;
     border: none;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid  #5f6982;
     box-sizing: border-box;
     background: transparent;
     outline: none;
@@ -202,7 +204,7 @@ input[type=text], input[type=password], input[type=email] {
     font-family: "fairplex-wide";
     font-size: 24px;
     opacity: 1;
-    color: white;
+    color: black;
     font-weight: 400;
 
     -webkit-transition: border-bottom 0.4s ease-in-out;
@@ -210,18 +212,18 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 input[type=text]:focus, input[type=password]:focus {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #5f6982;
 }
 
 
 input[type=text]:valid, input[type=password]:valid {
-    border-bottom: 2px solid #f50856;
+    border-bottom: 2px solid #5f6982;
 } /* This is a quick fix to get an authorization / valid entry state without using JS */
 
 input[type=submit] {
     width: 200px;
-    background-color: white;
-    color: #f50856;
+    background-color:darkslateblue; 
+    color:white; 
     padding: 14px 20px;
     margin: 8px auto 30px;
     border: none;
@@ -241,31 +243,49 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #dddddd;
-    color: #bb0642;
+    background-color: #181818;
+    color:#999; 
+    
+}
+
+.uploader label {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: #fff;
+  border-radius: 7px;
+  border: 3px solid #eee;
+  transition: all 0.2s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 
 ::-webkit-input-placeholder { /* Chrome */
-  color: white;
+  color: #5f6982;
   font-style: italic;
   opacity: .4;
 
   font-family: "fairplex-wide";
-  color: white;
+  color: #5f6982;
   font-weight: 400;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: white;
+  color: #5f6982;
   font-style: italic;
   opacity: .4;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: white;
+  color: #5f6982;
   opacity: .4;
   font-style: italic;
 }
 :-moz-placeholder { /* Firefox 4 - 18 */
-  color: white;
+  color: #5f6982;
   opacity: .4;
   font-style: italic;
 }
@@ -277,7 +297,7 @@ input[type=submit]:hover {
 /* Typography */
 
 h1{
-  color: white;
+  color: #5f6982;
   font-size: 48px;
   font-weight: 700;
   letter-spacing: 1px;
