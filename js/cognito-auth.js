@@ -53,14 +53,21 @@ var WildRydes = window.WildRydes || {};
      * Cognito User Pool functions
      */
 
-    function register(email, password, onSuccess, onFailure) {
+    function register(email, password, company, onSuccess, onFailure) {
         var dataEmail = {
             Name: 'email',
-            Value: email
+            Value: email,
+            
         };
+        var dataCompany = {
+            Name: 'custom:company',
+            Value: company
+        }
         var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+        var attributeCompany = new AmazonCognitoIdentity.CognitoUserAttribute(dataCompany);
+        console.log(attributeCompany); 
 
-        userPool.signUp(toUsername(email), password, [attributeEmail], null,
+        userPool.signUp(toUsername(email), password, [attributeEmail,attributeCompany], null,
             function signUpCallback(err, result) {
                 if (!err) {
                     onSuccess(result);
@@ -115,21 +122,6 @@ var WildRydes = window.WildRydes || {};
         $('#verifyForm').submit(handleVerify);
     });
 
-    function showLocalStorage(){
-          
-        //const myObject = { hello: 'world' };
-        //const myObjectString = JSON.stringify(myObject);
-        //localStorage.setItem('objectGreeting', myObjectString);
-
-        //var email = document.getElementById("emailInputSignin").value;
-        //const myObject = { email3: 'farukh'};
-        //console.log(email); 
-        //const myObjectString = JSON.stringify(myObject);
-        //var companiName  = "AWS";
-        //localStorage.setItem('objectGreeting', myObjectString);
-    
-    }
-
     function handleSignin(event) {
         var email = $('#emailInputSignin').val();
         var password = $('#passwordInputSignin').val();
@@ -140,12 +132,15 @@ var WildRydes = window.WildRydes || {};
                 if(email == 'farukh022198@gmail.com' && password == 'Step_111'){
                     window.location.href = 'signup.html';
                 }else{
+                var cognitoUser =  userPool.getCurrentUser().username;
+                //var user = Amazon.CognitoIdentityProvider.AmazonCognitoIdentityProviderClient.GetUserAsync(); 
+                console.log(cognitoUser); 
                 //var email = document.getElementById("emailInputSignin").value;
-                var company = document.getElementById("companyNameinputString").value;
-                console.log(email);
+
+                //var company = document.getElementById("companyNameinputString").value;
                 const myObject = { 
                     email: email,
-                    company: company
+                    company: cognitoUser
                  };
                 const myObjectString = JSON.stringify(myObject);
                 localStorage.setItem('objectGreeting', myObjectString);
@@ -162,9 +157,11 @@ var WildRydes = window.WildRydes || {};
         var email = $('#emailInputRegister').val();
         var password = $('#passwordInputRegister').val();
         var password2 = $('#password2InputRegister').val();
+        var company = $('#companyInputRegister').val();
+
 
         var onSuccess = function registerSuccess(result) {
-            var cognitoUser = result.user;
+            var cognitoUser = result.user; 
             console.log('user name is ' + cognitoUser.getUsername());
             var confirmation = ('Registration successful. Please check your email inbox or spam folder for your verification code.');
             if (confirmation) {
@@ -177,7 +174,7 @@ var WildRydes = window.WildRydes || {};
         event.preventDefault();
 
         if (password === password2) {
-            register(email, password, onSuccess, onFailure);
+            register(email, password, company, onSuccess, onFailure);
         } else {
             alert('Passwords do not match');
         }
